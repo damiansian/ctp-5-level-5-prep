@@ -12,7 +12,7 @@ interface ScoreTrackerProps {
   questionStatuses: { [key: QuestionStatusKey]: 'correct' | 'incorrect' | null };
 }
 
-const ScoreTracker: React.FC<ScoreTrackerProps> = ({ score, questionStatuses }) => {
+const ScoreTracker: React.FC<ScoreTrackerProps> = ({ score: _score, questionStatuses }) => {
   // Filter out Verbal Reasoning to match sidebar
   const visibleCategories = categories.filter(cat => cat.name !== 'Verbal Reasoning');
 
