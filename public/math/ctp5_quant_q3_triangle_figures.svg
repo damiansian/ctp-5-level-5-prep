@@ -1,0 +1,15 @@
+<svg width="100%" viewBox="0 0 680 334.92" xmlns="http://www.w3.org/2000/svg">
+  <text x="170" y="30" text-anchor="middle" dominant-baseline="central" fill="#1f2937" style="font-family: 'Anthropic Sans', -apple-system, 'system-ui', 'Segoe UI', sans-serif; font-size: 14px; font-weight: 500;">Figure A</text>
+
+  <rect x="60" y="50" width="220" height="160" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-linejoin="round" />
+  <line x1="60" y1="50" x2="280" y2="210" stroke="#1f2937" stroke-width="1" />
+  <line x1="280" y1="50" x2="60" y2="210" stroke="#1f2937" stroke-width="1" />
+
+  <text x="500" y="30" text-anchor="middle" dominant-baseline="central" fill="#1f2937" style="font-family: 'Anthropic Sans', -apple-system, 'system-ui', 'Segoe UI', sans-serif; font-size: 14px; font-weight: 500;">Figure B</text>
+
+  <rect x="370" y="50" width="260" height="200" fill="none" stroke="#1f2937" stroke-width="1.5" stroke-linejoin="round" />
+  <line x1="370" y1="50" x2="630" y2="250" stroke="#1f2937" stroke-width="1" />
+  <line x1="630" y1="50" x2="370" y2="250" stroke="#1f2937" stroke-width="1" />
+  <line x1="500" y1="50" x2="370" y2="250" stroke="#1f2937" stroke-width="1" />
+  <line x1="500" y1="50" x2="630" y2="250" stroke="#1f2937" stroke-width="1" />
+</svg>

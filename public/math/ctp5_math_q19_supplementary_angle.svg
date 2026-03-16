@@ -1,0 +1,33 @@
+<svg width="100%" viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Vertex point -->
+  <!-- Horizontal ray going right (base line) with arrowhead -->
+  <line x1="180" y1="200" x2="580" y2="200" stroke="var(--p)" stroke-width="1.5" marker-end="url(#arrow)" style="fill:rgb(0, 0, 0);stroke:rgb(31, 41, 55);color:rgb(31, 41, 55);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Angled ray going upper-left with arrowhead -->
+  <!-- 150° from the right ray means 30° above horizontal-left, so the ray goes up-left -->
+  <line x1="340" y1="200" x2="160" y2="96" stroke="var(--p)" stroke-width="1.5" marker-end="url(#arrow)" style="fill:rgb(0, 0, 0);stroke:rgb(31, 41, 55);color:rgb(31, 41, 55);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Arc for the 150° angle (on the right side, measured from right ray counterclockwise to the angled ray) -->
+  <!-- Arc from 0° (right) sweeping 150° counterclockwise -->
+  <!-- radius=70, center at (340,200) -->
+  <!-- start: (410, 200), end at 150°: (340 + 70*cos(150°), 200 - 70*sin(150°)) = (340-60.6, 200-35) = (279.4, 165) -->
+  <path d="M 410 200 A 70 70 0 0 0 279.4 165" fill="none" stroke="var(--s)" stroke-width="1" style="fill:none;stroke:rgb(100, 116, 139);color:rgb(100, 116, 139);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- 150° label -->
+  <text x="428" y="188" text-anchor="start" dominant-baseline="central" style="fill:rgb(31, 41, 55);stroke:none;color:rgb(31, 41, 55);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:400;text-anchor:start;dominant-baseline:central">150°</text>
+
+  <!-- Arc for x angle (the supplementary 30° on the left side of the angled ray) -->
+  <!-- From the angled ray direction (150°) sweeping to 180° (left horizontal) -->
+  <!-- radius=50, start at 150°: (340 + 50*cos(150°), 200 - 50*sin(150°)) = (296.7, 175) -->
+  <!-- end at 180°: (290, 200) -->
+  <path d="M 296.7 175 A 50 50 0 0 0 290 200" fill="none" stroke="var(--s)" stroke-width="1" style="fill:none;stroke:rgb(100, 116, 139);color:rgb(100, 116, 139);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- x label -->
+  <text x="272" y="178" text-anchor="end" dominant-baseline="central" style="fill:rgb(31, 41, 55);stroke:none;color:rgb(31, 41, 55);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:14px;font-weight:500;text-anchor:end;dominant-baseline:central">x</text>
+</svg>

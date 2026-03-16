@@ -1,0 +1,64 @@
+<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 8px; font-size: 12px; color: var(--color-text-secondary);">
+  <span style="display: flex; align-items: center; gap: 4px;"><span style="width: 10px; height: 10px; border-radius: 2px; background: #85B7EB;"></span>Percentage of total funds</span>
+</div>
+<div style="position: relative; width: 100%; height: 320px;">
+  <canvas id="q40chart"></canvas>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+var dark = matchMedia('(prefers-color-scheme: dark)').matches;
+var textColor = dark ? '#c2c0b6' : '#3d3d3a';
+var gridColor = dark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)';
+var barColor = '#85B7EB';
+
+new Chart(document.getElementById('q40chart'), {
+  type: 'bar',
+  data: {
+    labels: ['School\nbudget', 'Donations', 'Fundraising', 'Government\nassistance'],
+    datasets: [{
+      data: [0.30, 0.25, 0.40, 0.05],
+      backgroundColor: barColor,
+      borderColor: '#378ADD',
+      borderWidth: 1,
+      borderRadius: 4,
+      barPercentage: 0.7
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            return (ctx.raw * 100).toFixed(0) + '%';
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 0.5,
+        ticks: {
+          stepSize: 0.1,
+          color: textColor,
+          font: { size: 13 },
+          callback: function(v) { return v.toFixed(1); }
+        },
+        grid: { color: gridColor }
+      },
+      x: {
+        ticks: {
+          color: textColor,
+          font: { size: 13 },
+          autoSkip: false,
+          maxRotation: 0
+        },
+        grid: { display: false }
+      }
+    }
+  }
+});
+</script>

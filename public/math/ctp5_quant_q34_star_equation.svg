@@ -1,0 +1,11 @@
+<svg width="100%" viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="70,20 86,68 136,68 96,98 110,145 70,116 30,145 44,98 4,68 54,68" fill="none" stroke="#1f2937" stroke-width="2" stroke-linejoin="round" />
+  <text x="145" y="82" text-anchor="middle" dominant-baseline="central" fill="#1f2937" style="font-family: 'Anthropic Sans', -apple-system, 'system-ui', 'Segoe UI', sans-serif; font-size: 28px; font-weight: 600;">=</text>
+  <circle cx="230" cy="80" r="28" fill="none" stroke="#1f2937" stroke-width="2" />
+  <text x="285" y="82" text-anchor="middle" dominant-baseline="central" fill="#1f2937" style="font-family: 'Anthropic Sans', -apple-system, 'system-ui', 'Segoe UI', sans-serif; font-size: 28px; font-weight: 600;">+</text>
+  <polygon points="340,52 365,95 315,95" fill="none" stroke="#1f2937" stroke-width="2" stroke-linejoin="round" />
+  <text x="415" y="82" text-anchor="middle" dominant-baseline="central" fill="#1f2937" style="font-family: 'Anthropic Sans', -apple-system, 'system-ui', 'Segoe UI', sans-serif; font-size: 28px; font-weight: 600;">+</text>
+  <polygon points="470,52 495,95 445,95" fill="none" stroke="#1f2937" stroke-width="2" stroke-linejoin="round" />
+  <text x="545" y="82" text-anchor="middle" dominant-baseline="central" fill="#1f2937" style="font-family: 'Anthropic Sans', -apple-system, 'system-ui', 'Segoe UI', sans-serif; font-size: 28px; font-weight: 600;">+</text>
+  <polygon points="600,52 625,95 575,95" fill="none" stroke="#1f2937" stroke-width="2" stroke-linejoin="round" />
+</svg>

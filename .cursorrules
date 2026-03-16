@@ -1,0 +1,212 @@
+{
+  "chat": {
+    "responses": {
+      "prefix": "🧠 ",
+      "enforcePrefix": true
+    }
+  },
+  "project": {
+    "name": "CTP-5-LEVEL-5",
+    "type": "React SPA",
+    "purpose": "Transform paper-based CTP practice questions into a child-friendly digital learning experience that explains question purpose, identifies psychometric skills, surfaces areas needing support, and enables custom similar-question practice.",
+    "primaryUser": "Parent curating and analyzing practice for a child with test anxiety",
+    "studentOutcome": "Build confidence through understanding, targeted support, and repeated exposure to the kinds of thinking the assessment requires",
+    "stack": {
+      "frontend": "React 19.0.0 + TypeScript 5.7.2",
+      "buildTool": "Vite 6.2.0",
+      "deployment": [
+        "Netlify",
+        "Vercel"
+      ]
+    },
+    "architecture": {
+      "pattern": "Component-Based SPA",
+      "stateManagement": "React useState (local state only)",
+      "dataLayer": "Static TypeScript modules in /src/data",
+      "noBackend": true,
+      "note": "All data is client-side only - no API calls or database",
+      "authoringModel": "Questions may originate from scanned paper assessments and should preserve enough structure for interpretation and similar-question generation"
+    }
+  },
+  "development": {
+    "guidelines": [
+      "All chat responses must begin with a brain emoji",
+      "Keep responses clear and concise",
+      "Format code blocks with appropriate language tags",
+      "Ask about restarting the development server after each change",
+      "When adding questions from images, follow the guide in src/data/QUESTION_SCHEMA.md",
+      "Treat imported paper questions as analyzable assessment artifacts, not just text to transcribe",
+      "Prefer searchable OCR PDFs over raw page-photo OCR whenever possible",
+      "When both exist, use structured AI markdown drafts for drafting and searchable OCR PDFs for verification",
+      "Keep raw scan originals untouched and use processed copies only as working files",
+      "Preserve and document the purpose of each question: what it measures, why it is being asked, and what kind of thinking it expects",
+      "When authoring or extending question sets, prefer structures that support future similar-question generation",
+      "Optimize the learner experience for confidence and emotional safety, especially around test anxiety",
+      "Use npm for package management (never manually edit package.json)",
+      "Always run TypeScript compiler checks before committing",
+      "Maintain strict TypeScript mode - no 'any' types without justification"
+    ],
+    "serverRestart": {
+      "askAfterChanges": true,
+      "message": "Would you like me to restart the development server to see these changes?"
+    },
+    "codeStyle": {
+      "typescript": {
+        "strictMode": true,
+        "noImplicitAny": true,
+        "preferInterfaces": "Use interfaces for component props and data structures"
+      },
+      "react": {
+        "functionalComponents": "Always use functional components with hooks",
+        "propDrilling": "Current pattern - no context or state management library",
+        "hooks": "Follow React hooks rules (enforced by ESLint)"
+      }
+    }
+  },
+  "layout": {
+    "fixedWidth": {
+      "enabled": true,
+      "rootContainer": "1440px",
+      "sidebar": "300px",
+      "mainContent": "1020px",
+      "rationale": "Prevents motion sickness from dynamic resizing"
+    },
+    "spacing": {
+      "padding": "40px (standard)",
+      "margins": "40px between major components",
+      "borderRadius": "12px (standard)",
+      "gap": "24px (flex/grid gaps)"
+    }
+  },
+  "accessibility": {
+    "standard": "WCAG 2.1 Level AA",
+    "contrast": {
+      "text": {
+        "ratio": "4.5:1",
+        "requirement": "minimum",
+        "standard": "WCAG 2.1 Level AA"
+      },
+      "graphics": {
+        "ratio": "3:1",
+        "requirement": "minimum",
+        "standard": "WCAG 2.1 Level AA",
+        "includes": [
+          "User interface components",
+          "Visual information required to identify states and boundaries"
+        ]
+      }
+    },
+    "cssVariables": {
+      "location": "src/App.css :root",
+      "required": [
+        "--primary-blue: #0056b3 (4.5:1 on white)",
+        "--text-dark: #2d2d2d (13.5:1 on white)",
+        "--text-secondary: #595959 (7:1 on white)",
+        "--success-green: #2d5a27 (7:1 on white)",
+        "--error-red: #842029 (7:1 on white)"
+      ],
+      "note": "Always use CSS variables for colors - never hardcode colors"
+    },
+    "ariaLabels": {
+      "required": true,
+      "note": "All interactive elements must have proper ARIA labels"
+    }
+  },
+  "questionProcessing": {
+    "schema": {
+      "reference": "src/data/QUESTION_SCHEMA.md",
+      "requirements": [
+        "Follow the Image Processing Workflow",
+        "Adhere to the Question Object Structure",
+        "Apply Best Practices for accuracy and accessibility",
+        "Include appropriate feedback and progressive hints",
+        "Capture the psychometric purpose of the question whenever it can be determined",
+        "Preserve enough information to support similar-question authoring later"
+      ]
+    },
+    "goals": [
+      "Explain why a source question is being asked",
+      "Classify the skill or psychometric construct being assessed",
+      "Identify patterns that suggest where the learner needs support",
+      "Create a foundation for generating additional similar practice questions"
+    ],
+    "preferredWorkflow": [
+      "Organize raw source files first",
+      "Create a section-level source strategy note",
+      "Draft from normalized markdown when available",
+      "Verify against the searchable OCR PDF",
+      "Split text-first and figure-dependent items early",
+      "Import in small batches and QA in the app before scaling up"
+    ],
+    "visualItems": {
+      "preferredAssetLocation": "public/",
+      "note": "Use local assets for figure-dependent items whenever possible instead of relying on external runtime rendering"
+    },
+    "statusTracking": {
+      "keyPattern": "${category}-${id}",
+      "rationale": "Composite key allows same question ID across different categories",
+      "implementation": "Maintained in App.tsx state"
+    },
+    "categories": [
+      "Verbal Reasoning",
+      "Vocabulary",
+      "Reading Comprehension",
+      "Writing Mechanics",
+      "Mathematics",
+      "Quantitative Reasoning"
+    ],
+    "hints": {
+      "system": "Progressive hint system",
+      "location": "src/data/hints/index.ts",
+      "types": [
+        "understanding",
+        "process",
+        "custom"
+      ],
+      "note": "Check hints/index.ts for valid psychometricCategory and subTheme values. Hints should reduce anxiety and support understanding of the underlying skill, not just reveal the answer."
+    }
+  },
+  "fileStructure": {
+    "components": "src/components/ - Reusable React components",
+    "data": {
+      "questions": "src/data/questions/ - Question data by category",
+      "hints": "src/data/hints/ - Hint system data",
+      "types": "src/data/types.ts - Shared TypeScript interfaces"
+    },
+    "addingNewCategory": {
+      "steps": [
+        "1. Create question file in src/data/questions/[category].ts",
+        "2. Create hints in src/data/hints/index.ts",
+        "3. Import in App.tsx",
+        "4. Update navigation logic in App.tsx",
+        "5. Update Sidebar category list"
+      ],
+      "reference": "See DEVELOPMENT.md for detailed workflow"
+    }
+  },
+  "testing": {
+    "manual": "Primary testing method - run dev server and test UI",
+    "automated": "None currently implemented",
+    "note": "No test files exist - focus on manual QA"
+  },
+  "deployment": {
+    "platforms": {
+      "netlify": {
+        "config": "netlify.toml",
+        "buildCommand": "npm run build",
+        "publishDir": "dist"
+      },
+      "vercel": {
+        "config": "vercel.json",
+        "framework": "vite",
+        "outputDirectory": "dist",
+        "note": "On Hobby plans, deploy-bound commits should use a GitHub-associated author identity or Vercel may block the deployment"
+      }
+    },
+    "spaRouting": {
+      "enabled": true,
+      "fallback": "/index.html",
+      "note": "Both platforms configured for SPA routing"
+    }
+  }
+}
