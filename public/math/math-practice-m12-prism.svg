@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="348" viewBox="0 0 500 348" role="img" aria-labelledby="title desc">
+  <title id="title">Rectangular prism with labeled base area and height</title>
+  <desc id="desc">A rectangular prism with the front face labeled base area equals 18 square centimeters and the right side labeled 5 centimeters.</desc>
+  <rect width="500" height="348" fill="#f7f7f5"/>
+  <g fill="none" stroke="#333" stroke-width="2">
+    <rect x="102" y="121" width="220" height="145"/>
+    <path d="M322 121 l58 -39 v145 l-58 39 z"/>
+    <path d="M102 121 l58 -39 h220 l-58 39 z"/>
+    <line x1="102" y1="266" x2="160" y2="227"/>
+    <line x1="160" y1="82" x2="160" y2="227"/>
+  </g>
+  <text x="212" y="159" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#777">Base area =</text>
+  <text x="212" y="181" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#777">18 sq cm</text>
+  <text x="394" y="151" font-family="Georgia, serif" font-size="20" fill="#222">5 cm</text>
+</svg>

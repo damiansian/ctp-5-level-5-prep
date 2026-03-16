@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" role="img" aria-labelledby="title desc">
+  <title id="title">Bar chart of school club percentages</title>
+  <desc id="desc">A bar chart showing Drama Club at 0.35, Art Club at 0.20, Science Club at 0.30, and Music Club at 0.15.</desc>
+  <rect width="600" height="400" fill="#f7f7f5"/>
+  <g transform="translate(80,40)" font-family="Arial, sans-serif">
+    <line x1="0" y1="0" x2="0" y2="280" stroke="#222" stroke-width="2"/>
+    <line x1="0" y1="280" x2="480" y2="280" stroke="#222" stroke-width="2"/>
+    <g stroke="#d0d0d0" stroke-width="1">
+      <line x1="0" y1="224" x2="480" y2="224"/>
+      <line x1="0" y1="168" x2="480" y2="168"/>
+      <line x1="0" y1="112" x2="480" y2="112"/>
+      <line x1="0" y1="56" x2="480" y2="56"/>
+      <line x1="0" y1="0" x2="480" y2="0"/>
+    </g>
+    <g fill="#666" font-size="14" text-anchor="end">
+      <text x="-10" y="285">0.0</text>
+      <text x="-10" y="229">0.1</text>
+      <text x="-10" y="173">0.2</text>
+      <text x="-10" y="117">0.3</text>
+      <text x="-10" y="61">0.4</text>
+      <text x="-10" y="5">0.5</text>
+    </g>
+    <g fill="#7fb0e3" stroke="#2d7fe3">
+      <rect x="32" y="84" width="80" height="196"/>
+      <rect x="144" y="168" width="80" height="112"/>
+      <rect x="256" y="112" width="80" height="168"/>
+      <rect x="368" y="196" width="80" height="84"/>
+    </g>
+    <g fill="#0f4c8a" font-size="18" text-anchor="middle">
+      <text x="72" y="108">0.35</text>
+      <text x="184" y="192">0.2</text>
+      <text x="296" y="136">0.3</text>
+      <text x="408" y="220">0.15</text>
+    </g>
+    <g fill="#333" font-size="16" text-anchor="middle">
+      <text x="72" y="330">Drama</text>
+      <text x="72" y="349">Club</text>
+      <text x="184" y="330">Art</text>
+      <text x="184" y="349">Club</text>
+      <text x="296" y="330">Science</text>
+      <text x="296" y="349">Club</text>
+      <text x="408" y="330">Music</text>
+      <text x="408" y="349">Club</text>
+    </g>
+  </g>
+</svg>

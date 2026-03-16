@@ -34,8 +34,8 @@ export const vocabularyQuestions = vocabularyPracticeQuestions;
 export const readingComprehensionQuestions = filterRetainedQuestions('Reading Comprehension', rawReadingComprehensionQuestions);
 export const retainedWritingMechanicsQuestions = filterRetainedQuestions('Writing Mechanics', rawWritingMechanicsQuestions);
 export const writingMechanicsQuestions = writingMechanicsPracticeQuestions;
-export const mathematicsQuestions = filterRetainedQuestions('Mathematics', rawMathematicsQuestions);
-export const quantitativeReasoningQuestions = filterRetainedQuestions('Quantitative Reasoning', rawQuantitativeReasoningQuestions);
+export const mathematicsQuestions = rawMathematicsQuestions;
+export const quantitativeReasoningQuestions = rawQuantitativeReasoningQuestions;
 
 export const categories: Category[] = [
   {

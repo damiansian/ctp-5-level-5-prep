@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="348" viewBox="0 0 500 348" role="img" aria-labelledby="title desc">
+  <title id="title">Rectangle measuring 11 feet by 7 feet</title>
+  <desc id="desc">A rectangle with width labeled 11 feet and height labeled 7 feet.</desc>
+  <rect width="500" height="348" fill="#f7f7f5"/>
+  <rect x="101" y="84" width="298" height="160" fill="none" stroke="#333" stroke-width="4"/>
+  <line x1="101" y1="276" x2="399" y2="276" stroke="#333" stroke-width="2"/>
+  <line x1="101" y1="270" x2="101" y2="282" stroke="#333" stroke-width="2"/>
+  <line x1="399" y1="270" x2="399" y2="282" stroke="#333" stroke-width="2"/>
+  <text x="250" y="266" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#222">11 feet</text>
+  <line x1="424" y1="84" x2="424" y2="244" stroke="#333" stroke-width="2"/>
+  <line x1="418" y1="84" x2="430" y2="84" stroke="#333" stroke-width="2"/>
+  <line x1="418" y1="244" x2="430" y2="244" stroke="#333" stroke-width="2"/>
+  <text x="438" y="169" font-family="Georgia, serif" font-size="22" fill="#222">7 feet</text>
+</svg>

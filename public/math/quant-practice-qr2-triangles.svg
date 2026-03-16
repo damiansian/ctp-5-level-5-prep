@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="650" height="280" viewBox="0 0 650 280" role="img" aria-labelledby="title desc">
+  <title id="title">Two square triangle-counting figures</title>
+  <desc id="desc">Figure A is a square with both diagonals drawn. Figure B is a square with both diagonals and a horizontal line through the center.</desc>
+  <rect width="650" height="280" fill="#f7f7f5"/>
+  <text x="165" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#222">Figure A</text>
+  <text x="485" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#222">Figure B</text>
+  <g fill="none" stroke="#222" stroke-width="2">
+    <rect x="60" y="52" width="200" height="180"/>
+    <line x1="60" y1="52" x2="260" y2="232"/>
+    <line x1="60" y1="232" x2="260" y2="52"/>
+    <rect x="360" y="52" width="240" height="180"/>
+    <line x1="360" y1="52" x2="600" y2="232"/>
+    <line x1="360" y1="232" x2="600" y2="52"/>
+    <line x1="360" y1="142" x2="600" y2="142"/>
+  </g>
+</svg>

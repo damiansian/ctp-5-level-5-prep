@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="550" height="350" viewBox="0 0 550 350" role="img" aria-labelledby="title desc">
+  <title id="title">Triangle with base B and height H</title>
+  <desc id="desc">A triangle with base labeled B, a dashed height labeled H, and a slanted side labeled 10. The figure is not drawn to scale.</desc>
+  <rect width="550" height="350" fill="#f7f7f5"/>
+  <g fill="none" stroke="#222" stroke-width="2">
+    <line x1="82" y1="280" x2="420" y2="280"/>
+    <line x1="82" y1="280" x2="300" y2="60"/>
+    <line x1="300" y1="60" x2="420" y2="280"/>
+    <line x1="300" y1="60" x2="300" y2="280" stroke-dasharray="6 10" stroke="#888"/>
+    <path d="M286 268 h14 v12" stroke="#888"/>
+  </g>
+  <text x="270" y="305" font-family="Georgia, serif" font-size="22" fill="#222"><tspan font-style="italic">B</tspan></text>
+  <text x="265" y="176" font-family="Georgia, serif" font-size="22" fill="#222"><tspan font-style="italic">H</tspan></text>
+  <text x="370" y="176" font-family="Georgia, serif" font-size="22" fill="#222">10</text>
+  <text x="245" y="330" font-family="Arial, sans-serif" font-size="16" fill="#777">(Figure not drawn to scale)</text>
+</svg>
