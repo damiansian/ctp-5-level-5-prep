@@ -94,26 +94,33 @@ const QuestionWindow: React.FC<QuestionWindowProps> = ({
 
   const handleModalClose = () => {
     setShowHintModal(false);
-    setHintIndex((prev) => (prev + 1) % getAvailableHints().length);
+    const availableHints = getAvailableHints();
+    if (availableHints.length > 0) {
+      setHintIndex((prev) => (prev + 1) % availableHints.length);
+    }
   };
 
   const getAvailableHints = () => {
     try {
-      if (!question?.psychometricCategory || !question?.subTheme) return [];
-      
-      const categoryHints = hints[question.psychometricCategory];
-      if (!categoryHints?.subThemes?.[question.subTheme]) return [];
+      if (!question) return [];
 
-      const subThemeHints = categoryHints.subThemes[question.subTheme];
+      const customHints = question.customHints || [];
+      const categoryHints = question.psychometricCategory
+        ? hints[question.psychometricCategory]
+        : undefined;
+      const subThemeHints = question.subTheme && categoryHints?.subThemes
+        ? categoryHints.subThemes[question.subTheme]
+        : undefined;
+
       return [
-        categoryHints.description,
+        categoryHints?.description,
         ...(subThemeHints?.understanding || []),
         ...(subThemeHints?.process || []),
-        ...(question.customHints || [])
-      ].filter(Boolean); // Remove any undefined/null values
+        ...customHints
+      ].filter(Boolean);
     } catch (error) {
       console.error('Error getting hints:', error);
-      return [];
+      return question?.customHints || [];
     }
   };
 
