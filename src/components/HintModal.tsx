@@ -10,6 +10,7 @@ interface HintModalProps {
 const HintModal: React.FC<HintModalProps> = ({ isOpen, onClose, hint, attemptNumber }) => {
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const displayHint = hint.trim() || 'No hint text is available for this question yet.';
 
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
@@ -83,7 +84,7 @@ const HintModal: React.FC<HintModalProps> = ({ isOpen, onClose, hint, attemptNum
           </button>
         </div>
         <div id="hint-content" className="modal-body">
-          {hint}
+          <p>{displayHint}</p>
         </div>
       </div>
     </div>

@@ -804,6 +804,23 @@
   font-size: 1.5rem;
 }
 
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modal-body {
+  color: var(--text-dark);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.modal-body p {
+  margin: 0;
+}
+
 .modal-content p {
   color: var(--text-dark);
   margin-bottom: 1rem;
