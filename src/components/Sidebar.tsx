@@ -125,11 +125,13 @@ const Sidebar: React.FC<SidebarProps> = ({ onQuestionSelect, onHomeClick, curren
         </svg>
         <span className="home-text">Home</span>
       </button>
-      {categories.map((category) => {
+      {categories
+        .filter(category => category.name !== 'Verbal Reasoning')
+        .map((category) => {
         const isExpanded = expandedCategory === category.name;
         const categoryId = `category-${category.name.toLowerCase().replace(/\s+/g, '-')}`;
         const contentId = `content-${categoryId}`;
-        
+
         return (
           <div key={category.name} className="category">
             <button

@@ -13,7 +13,29 @@ interface ScoreTrackerProps {
 }
 
 const ScoreTracker: React.FC<ScoreTrackerProps> = ({ score, questionStatuses }) => {
-  const percentage = Math.round((score.correct / score.total) * 100);
+  // Filter out Verbal Reasoning to match sidebar
+  const visibleCategories = categories.filter(cat => cat.name !== 'Verbal Reasoning');
+
+  // Calculate statistics based only on visible categories
+  let totalCorrect = 0;
+  let totalIncorrect = 0;
+  let totalQuestions = 0;
+
+  visibleCategories.forEach(category => {
+    category.questions.forEach(question => {
+      const statusKey = `${category.name}-${question.id}` as QuestionStatusKey;
+      const status = questionStatuses[statusKey];
+
+      totalQuestions++;
+      if (status === 'correct') {
+        totalCorrect++;
+      } else if (status === 'incorrect') {
+        totalIncorrect++;
+      }
+    });
+  });
+
+  const percentage = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
 
   const handlePrintScore = () => {
     const printWindow = window.open('', '_blank');
@@ -34,8 +56,8 @@ const ScoreTracker: React.FC<ScoreTrackerProps> = ({ score, questionStatuses }) 
       minute: '2-digit'
     });
 
-    // Calculate category statistics
-    const categoryStats = categories.map(category => {
+    // Calculate category statistics (excluding Verbal Reasoning)
+    const categoryStats = visibleCategories.map(category => {
       const questions = category.questions;
       let correct = 0;
       let incorrect = 0;
@@ -287,15 +309,15 @@ const ScoreTracker: React.FC<ScoreTrackerProps> = ({ score, questionStatuses }) 
                 <div class="summary-stat-label">Final Score</div>
               </div>
               <div class="summary-stat">
-                <div class="summary-stat-value" style="color: #28a745;">${score.correct}</div>
+                <div class="summary-stat-value" style="color: #28a745;">${totalCorrect}</div>
                 <div class="summary-stat-label">Correct</div>
               </div>
               <div class="summary-stat">
-                <div class="summary-stat-value" style="color: #dc3545;">${score.incorrect}</div>
+                <div class="summary-stat-value" style="color: #dc3545;">${totalIncorrect}</div>
                 <div class="summary-stat-label">Needs Review</div>
               </div>
               <div class="summary-stat">
-                <div class="summary-stat-value">${score.total}</div>
+                <div class="summary-stat-value">${totalQuestions}</div>
                 <div class="summary-stat-label">Total Questions</div>
               </div>
             </div>
@@ -326,15 +348,15 @@ const ScoreTracker: React.FC<ScoreTrackerProps> = ({ score, questionStatuses }) 
     <div className="score-tracker">
       <div className="score-item">
         <div className="score-label">Correct</div>
-        <div className="score-value">{score.correct}</div>
+        <div className="score-value">{totalCorrect}</div>
       </div>
       <div className="score-item">
         <div className="score-label">Needs attention</div>
-        <div className="score-value">{score.incorrect}</div>
+        <div className="score-value">{totalIncorrect}</div>
       </div>
       <div className="score-item">
         <div className="score-label">Score</div>
-        <div className="score-value">{score.correct}/{score.total}</div>
+        <div className="score-value">{totalCorrect}/{totalQuestions}</div>
       </div>
       <div className="score-item">
         <div className="score-label">Percentage</div>
