@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { categories } from '../data/questions';
+import { getVisibleCategories } from '../utils/categoryHelpers';
 
 type QuestionStatusKey = `${string}-${number}`;
 
@@ -254,8 +254,7 @@ const Dashboard: React.FC<DashboardProps> = ({ questionStatuses }) => {
   };
 
   // Calculate live statistics from questionStatuses
-  const categoryStats = categories
-    .filter(cat => cat.name !== 'Verbal Reasoning') // Exclude "OLD" category
+  const categoryStats = getVisibleCategories()
     .map(category => {
       const questions = category.questions;
       let correct = 0;

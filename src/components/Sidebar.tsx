@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Question } from '../data/types';
-import { categories } from '../data/questions';
+import { getVisibleCategories } from '../utils/categoryHelpers';
 
 type QuestionStatusKey = `${string}-${number}`;
 
@@ -125,8 +125,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onQuestionSelect, onHomeClick, curren
         </svg>
         <span className="home-text">Home</span>
       </button>
-      {categories
-        .filter(category => category.name !== 'Verbal Reasoning')
+      {getVisibleCategories()
         .map((category) => {
         const isExpanded = expandedCategory === category.name;
         const categoryId = `category-${category.name.toLowerCase().replace(/\s+/g, '-')}`;
@@ -167,7 +166,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onQuestionSelect, onHomeClick, curren
                 <ul className="question-list" role="list" aria-label={`${category.name} questions`}>
                   {category.questions.map((question, index) => {
                     const status = questionStatuses[getStatusKey(question.category, question.id)];
-                    const attempts = questionAttempts[question.id.toString()] || 0;
+                    const attempts = questionAttempts[getStatusKey(question.category, question.id)] || 0;
                     const hasMultipleAttempts = attempts > 1 && status === 'correct';
                     const isCurrent = isCurrentQuestion(question);
 

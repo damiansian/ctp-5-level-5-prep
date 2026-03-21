@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import './App.css'
 import Sidebar from './components/Sidebar'
 import QuestionWindow from './components/QuestionWindow'
@@ -13,6 +13,20 @@ import {
 
 type QuestionStatusKey = `${string}-${number}`;
 
+const STORAGE_KEYS = {
+  questionStatuses: 'ctp5-questionStatuses',
+  answeredQuestions: 'ctp5-answeredQuestions',
+};
+
+function loadFromStorage<T>(key: string, fallback: T): T {
+  try {
+    const stored = localStorage.getItem(key);
+    return stored ? JSON.parse(stored) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 function App() {
   const [score, setScore] = useState({
     correct: 0,
@@ -21,7 +35,9 @@ function App() {
   });
 
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
-  const [questionStatuses, setQuestionStatuses] = useState<{ [key: QuestionStatusKey]: 'correct' | 'incorrect' | null }>({});
+  const [questionStatuses, setQuestionStatuses] = useState<{ [key: QuestionStatusKey]: 'correct' | 'incorrect' | null }>(
+    () => loadFromStorage(STORAGE_KEYS.questionStatuses, {})
+  );
   const [answeredQuestions, setAnsweredQuestions] = useState<{
     [key: string]: {
       answer: string;
@@ -29,7 +45,16 @@ function App() {
       showFeedback: boolean;
       attempts: number;
     }
-  }>({});
+  }>(() => loadFromStorage(STORAGE_KEYS.answeredQuestions, {}));
+
+  // Persist answer data to localStorage
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.questionStatuses, JSON.stringify(questionStatuses));
+  }, [questionStatuses]);
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEYS.answeredQuestions, JSON.stringify(answeredQuestions));
+  }, [answeredQuestions]);
 
   const getStatusKey = (category: string, id: number): QuestionStatusKey => {
     return `${category}-${id}` as QuestionStatusKey;
@@ -37,37 +62,28 @@ function App() {
 
   const handleAnswerSubmit = (answer: string, questionId: number) => {
     if (!currentQuestion) return;
-    
+
     const isCorrect = answer === currentQuestion.key;
     const answerKey = getStatusKey(currentQuestion.category, questionId);
     const previousAnswer = answeredQuestions[answerKey];
-    const currentAttempts = previousAnswer?.attempts || 0;
-    const isMultipleAttempts = currentAttempts > 0;
 
     // Update score based on the new logic
     setScore(prev => {
-      let newIncorrect = prev.incorrect;
-      
-      // If this is a first attempt
+      // First attempt — simple increment
       if (!previousAnswer) {
-        if (!isCorrect) newIncorrect++; // Only increment if incorrect
-      } 
-      // If this is a subsequent attempt
-      else {
-        // If previously incorrect and now correct, decrement the count
-        if (!previousAnswer.isCorrect && isCorrect && !isMultipleAttempts) {
-          newIncorrect--;
-        }
-        // If still incorrect and not already counted for multiple attempts, increment
-        else if (!isCorrect && !isMultipleAttempts) {
-          newIncorrect++;
-        }
+        return {
+          ...prev,
+          correct: isCorrect ? prev.correct + 1 : prev.correct,
+          incorrect: !isCorrect ? prev.incorrect + 1 : prev.incorrect
+        };
       }
-
+      // Subsequent attempt — only adjust if result changed
+      const wasCorrect = previousAnswer.isCorrect;
+      if (wasCorrect === isCorrect) return prev; // No change
       return {
         ...prev,
-        correct: isCorrect ? prev.correct + 1 : prev.correct,
-        incorrect: newIncorrect
+        correct: prev.correct + (isCorrect ? 1 : -1),
+        incorrect: prev.incorrect + (isCorrect ? -1 : 1)
       };
     });
 
@@ -78,6 +94,7 @@ function App() {
     }));
 
     setAnsweredQuestions(prev => {
+      const currentAttempts = previousAnswer?.attempts || 0;
       return {
         ...prev,
         [answerKey]: {
@@ -108,10 +125,9 @@ function App() {
   const questionAttempts = useMemo(() =>
     Object.fromEntries(
       Object.entries(answeredQuestions)
-        .filter(([key]) => key.startsWith(currentQuestion?.category || ''))
-        .map(([key, data]) => [key.split('-')[1], data.attempts])
+        .map(([key, data]) => [key, data.attempts])
     ),
-    [answeredQuestions, currentQuestion?.category]
+    [answeredQuestions]
   );
 
   const handleHomeClick = () => {

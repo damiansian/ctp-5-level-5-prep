@@ -1,4 +1,5 @@
 import React from 'react';
+import DOMPurify from 'dompurify';
 
 interface MathExpressionProps {
   expression: string;
@@ -33,9 +34,9 @@ const MathExpression: React.FC<MathExpressionProps> = ({ expression }) => {
   };
 
   return (
-    <span 
-      dangerouslySetInnerHTML={{ __html: toMathML(expression) }}
-      role="math" 
+    <span
+      dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(toMathML(expression), { ADD_TAGS: ['math', 'mrow', 'mo', 'mn', 'mi', 'msup', 'msub', 'mfrac', 'mtext'], ADD_ATTR: ['xmlns'] }) }}
+      role="math"
       aria-label={expression.replace(/×/g, ' times ')}
     />
   );

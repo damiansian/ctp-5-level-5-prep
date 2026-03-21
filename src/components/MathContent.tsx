@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import DOMPurify from 'dompurify';
 
 interface MathContentProps {
   content: string;
@@ -32,7 +33,7 @@ const MathContent: React.FC<MathContentProps> = ({ content, className, inline = 
       <span
         ref={containerRef as React.RefObject<HTMLSpanElement>}
         className={className}
-        dangerouslySetInnerHTML={{ __html: content }}
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(content) }}
       />
     );
   }

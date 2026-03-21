@@ -57,3 +57,16 @@ export const getAllQuestions = (): Question[] => {
   return categories.flatMap(category => category.questions);
 };
 
+/**
+ * Categories hidden from the active practice UI.
+ * Verbal Reasoning questions were retained for reference
+ * but are no longer shown in the sidebar, dashboard, or score tracker.
+ */
+const HIDDEN_CATEGORIES = new Set(['Verbal Reasoning']);
+
+/**
+ * Returns the categories that should be displayed in the UI
+ */
+export const getVisibleCategories = () =>
+  categories.filter(cat => !HIDDEN_CATEGORIES.has(cat.name));
+

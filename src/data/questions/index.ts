@@ -6,6 +6,7 @@ import { readingComprehensionQuestions as rawReadingComprehensionQuestions } fro
 import { writingMechanicsQuestions as rawWritingMechanicsQuestions } from './writing-mechanics';
 import { writingMechanicsPracticeQuestions } from './writing-mechanics-practice';
 import { mathematicsQuestions as rawMathematicsQuestions } from './mathematics';
+import { mathematicsPracticeQuestions } from './mathematics-practice';
 import { quantitativeReasoningQuestions as rawQuantitativeReasoningQuestions } from './quantitative-reasoning';
 
 export interface Category {
@@ -34,7 +35,8 @@ export const vocabularyQuestions = vocabularyPracticeQuestions;
 export const readingComprehensionQuestions = filterRetainedQuestions('Reading Comprehension', rawReadingComprehensionQuestions);
 export const retainedWritingMechanicsQuestions = filterRetainedQuestions('Writing Mechanics', rawWritingMechanicsQuestions);
 export const writingMechanicsQuestions = writingMechanicsPracticeQuestions;
-export const mathematicsQuestions = rawMathematicsQuestions;
+export const retainedMathematicsQuestions = filterRetainedQuestions('Mathematics', rawMathematicsQuestions);
+export const mathematicsQuestions = mathematicsPracticeQuestions;
 export const quantitativeReasoningQuestions = rawQuantitativeReasoningQuestions;
 
 export const categories: Category[] = [
@@ -83,3 +85,10 @@ export const questions: Question[] = [
   ...mathematicsQuestions,
   ...quantitativeReasoningQuestions
 ];
+
+import { validateQuestions } from '../../utils/validateQuestions';
+
+// Run validation in development
+if (import.meta.env.DEV) {
+  validateQuestions(questions);
+}

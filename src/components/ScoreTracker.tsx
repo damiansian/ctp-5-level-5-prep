@@ -1,5 +1,5 @@
 import React from 'react';
-import { categories } from '../data/questions';
+import { getVisibleCategories } from '../utils/categoryHelpers';
 
 type QuestionStatusKey = `${string}-${number}`;
 
@@ -14,7 +14,7 @@ interface ScoreTrackerProps {
 
 const ScoreTracker: React.FC<ScoreTrackerProps> = ({ score: _score, questionStatuses }) => {
   // Filter out Verbal Reasoning to match sidebar
-  const visibleCategories = categories.filter(cat => cat.name !== 'Verbal Reasoning');
+  const visibleCategories = getVisibleCategories();
 
   // Calculate statistics based only on visible categories
   let totalCorrect = 0;
@@ -338,10 +338,10 @@ const ScoreTracker: React.FC<ScoreTrackerProps> = ({ score: _score, questionStat
     printWindow.document.close();
     printWindow.focus();
 
-    // Automatically open print dialog after a brief delay
-    setTimeout(() => {
+    // Automatically open print dialog when document is loaded
+    printWindow.onload = () => {
       printWindow.print();
-    }, 250);
+    };
   };
 
   return (

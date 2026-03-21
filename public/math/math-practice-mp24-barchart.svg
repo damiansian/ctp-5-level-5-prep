@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" role="img" aria-labelledby="title desc">
+  <title id="title">How Students Get to School</title>
+  <desc id="desc">A bar chart showing how students get to school: Walk at 0.15, Car at 0.35, Bus at 0.40, and Bike at 0.10.</desc>
+  <rect width="600" height="400" fill="#f7f7f5"/>
+  <text x="300" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#222">How Students Get to School</text>
+  <g transform="translate(80,50)" font-family="Arial, sans-serif">
+    <line x1="0" y1="0" x2="0" y2="280" stroke="#222" stroke-width="2"/>
+    <line x1="0" y1="280" x2="480" y2="280" stroke="#222" stroke-width="2"/>
+    <g stroke="#d0d0d0" stroke-width="1">
+      <line x1="0" y1="224" x2="480" y2="224"/>
+      <line x1="0" y1="168" x2="480" y2="168"/>
+      <line x1="0" y1="112" x2="480" y2="112"/>
+      <line x1="0" y1="56" x2="480" y2="56"/>
+      <line x1="0" y1="0" x2="480" y2="0"/>
+    </g>
+    <g fill="#666" font-size="14" text-anchor="end">
+      <text x="-10" y="285">0.0</text>
+      <text x="-10" y="229">0.10</text>
+      <text x="-10" y="173">0.20</text>
+      <text x="-10" y="117">0.30</text>
+      <text x="-10" y="61">0.40</text>
+    </g>
+    <g stroke="#555">
+      <rect x="32" y="112" width="80" height="168" fill="#4ecdc4"/>
+      <rect x="144" y="56" width="80" height="224" fill="#ff6b6b"/>
+      <rect x="256" y="28" width="80" height="252" fill="#95e1d3"/>
+      <rect x="368" y="140" width="80" height="140" fill="#f9ca24"/>
+    </g>
+    <g fill="#0f4c8a" font-size="16" text-anchor="middle">
+      <text x="72" y="295">0.15</text>
+      <text x="184" y="295">0.35</text>
+      <text x="296" y="295">0.40</text>
+      <text x="408" y="295">0.10</text>
+    </g>
+    <g fill="#333" font-size="16" text-anchor="middle">
+      <text x="72" y="330">Walk</text>
+      <text x="184" y="330">Car</text>
+      <text x="296" y="330">Bus</text>
+      <text x="408" y="330">Bike</text>
+    </g>
+  </g>
+</svg>
