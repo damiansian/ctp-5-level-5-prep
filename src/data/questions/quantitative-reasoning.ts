@@ -28,21 +28,21 @@ export const quantitativeReasoningQuestions: Question[] = [
     subTheme: 'Logic and Problem Solving',
     stimulus: `
       <div class="comparison-question">
-        <p><strong>Let</strong> <em>a</em> ♦ <em>b</em> = (<em>a</em> + <em>b</em>) x <em>a</em> x <em>b</em></p>
-        ${comparisonTable('The value of 4 ♦ 3', 'The value of 2 ♦ 6')}
+        <p><strong>Let</strong> <em>a</em> ★ <em>b</em> = (<em>a</em> x <em>b</em>) + (<em>a</em> − <em>b</em>)</p>
+        ${comparisonTable('The value of 7 ★ 3', 'The value of 5 ★ 4')}
       </div>
     `,
     stem: 'Compare the amounts in Box A and Box B.',
     choices: comparisonChoices,
-    key: 'b',
+    key: 'a',
     feedback: {
-      correct: 'Correct! 4 ♦ 3 = 84 and 2 ♦ 6 = 96, so Box B is greater.',
-      incorrect: 'Work out each custom operation separately. Box A is (4 + 3) x 4 x 3, and Box B is (2 + 6) x 2 x 6.'
+      correct: 'Correct! 7 ★ 3 = (7 x 3) + (7 − 3) = 21 + 4 = 25, and 5 ★ 4 = (5 x 4) + (5 − 4) = 20 + 1 = 21. Box A is greater.',
+      incorrect: 'Follow the rule: multiply the two numbers, then add the difference between them. Do this for each box separately.'
     },
     customHints: [
-      'Add the two numbers first, then multiply by both original numbers.',
-      '4 ♦ 3 = 7 x 4 x 3.',
-      '2 ♦ 6 = 8 x 2 x 6, and 96 is greater than 84.'
+      'The rule has two parts: multiply the numbers, then add the difference.',
+      '7 ★ 3 = (7 x 3) + (7 − 3) = 21 + 4.',
+      '5 ★ 4 = (5 x 4) + (5 − 4) = 20 + 1. Now compare 25 and 21.'
     ]
   },
   {
@@ -104,20 +104,20 @@ export const quantitativeReasoningQuestions: Question[] = [
     subTheme: 'Number Properties',
     stimulus: `
       <div class="comparison-question">
-        ${comparisonTable('The number of zeros in 3.15 x 10<sup>3</sup>', 'The number of zeros in 7.4 x 10<sup>2</sup>')}
+        ${comparisonTable('The number of zeros in 2.5 x 10<sup>4</sup>', 'The number of zeros in 6.03 x 10<sup>3</sup>')}
       </div>
     `,
     stem: 'Compare the amounts in Box A and Box B.',
     choices: comparisonChoices,
-    key: 'c',
+    key: 'a',
     feedback: {
-      correct: 'Correct! 3.15 x 10³ = 3,150 and 7.4 x 10² = 740. Each number has one zero.',
-      incorrect: 'Write each number in standard form first, then count the zeros in the result.'
+      correct: 'Correct! 2.5 x 10⁴ = 25,000 which has 3 zeros, and 6.03 x 10³ = 6,030 which has 2 zeros. Box A is greater.',
+      incorrect: 'Write each number in standard form by moving the decimal point. Then count all the zeros in each number.'
     },
     customHints: [
-      'Move the decimal right 3 places for 3.15 x 10³.',
-      'Move the decimal right 2 places for 7.4 x 10².',
-      'Now count the zeros in 3,150 and 740.'
+      'Move the decimal right 4 places for 2.5 x 10⁴ to get 25,000.',
+      'Move the decimal right 3 places for 6.03 x 10³ to get 6,030.',
+      'Count the zeros: 25,000 has three zeros and 6,030 has two zeros.'
     ]
   },
   {
@@ -181,21 +181,21 @@ export const quantitativeReasoningQuestions: Question[] = [
     subTheme: 'Logic and Problem Solving',
     stimulus: `
       <div class="comparison-question">
-        <p>There are 15 people in front of Carlos in a line. There are 30 people in the line total.</p>
-        ${comparisonTable('The number of people behind Carlos', "Carlos's place number in the line")}
+        <p>There are 42 students in a class. Mia's desk is 13th from the front of the room and 8th from the right side.</p>
+        ${comparisonTable('The number of students sitting behind Mia', 'The number of students sitting in front of Mia')}
       </div>
     `,
     stem: 'Compare the amounts in Box A and Box B.',
     choices: comparisonChoices,
-    key: 'b',
+    key: 'd',
     feedback: {
-      correct: 'Correct! Carlos is 16th in line, so there are 14 people behind him. Box B is greater.',
-      incorrect: 'Remember to count Carlos himself when finding his place in line. Then subtract from the total to find how many are behind him.'
+      correct: 'Correct! We know Mia is 13th from the front, so 12 students sit in front of her. But we don\'t know how many rows or columns there are, so we can\'t determine how many sit behind her.',
+      incorrect: 'Think carefully: knowing Mia is 13th from the front tells you how many are in front. But can you figure out how many are behind her without knowing the arrangement of desks?'
     },
     customHints: [
-      'If 15 people are in front, Carlos is one place after them.',
-      'That makes Carlos 16th.',
-      'Subtract 16 from 30 to find how many people are behind him.'
+      'Being 13th from the front means 12 students are in front of Mia.',
+      'But how are the 42 desks arranged? We don\'t know the number of rows or columns.',
+      'Without knowing the layout, we cannot determine how many students are behind her.'
     ]
   },
   {
@@ -254,22 +254,22 @@ export const quantitativeReasoningQuestions: Question[] = [
     category: 'Quantitative Reasoning',
     psychometricCategory: 'Quantitative Reasoning',
     subTheme: 'Logic and Problem Solving',
-    stem: "Emma is 12 years old. Three years ago she was two years older than her brother's current age. How old was her brother four years ago?",
+    stem: "Sara is 15 years old. Three years ago she was twice as old as her brother was at that time. How old is her brother now?",
     choices: {
-      a: '3 years old',
-      b: '5 years old',
-      c: '7 years old',
-      d: '9 years old'
+      a: '6 years old',
+      b: '7 years old',
+      c: '9 years old',
+      d: '12 years old'
     },
-    key: 'a',
+    key: 'c',
     feedback: {
-      correct: 'Correct! Three years ago Emma was 9, so her brother is currently 7. Four years ago he was 3.',
-      incorrect: 'Go step by step: find Emma\'s age three years ago, then use that to find her brother\'s current age, then go back four years.'
+      correct: 'Correct! Three years ago Sara was 12. She was twice her brother\'s age then, so her brother was 6 at that time. Add 3 years back and he is 9 now.',
+      incorrect: 'Go step by step: find Sara\'s age three years ago, then use "twice as old" to find her brother\'s age at that time, then add 3 years to get his current age.'
     },
     customHints: [
-      'Emma was 9 three years ago.',
-      'At that time she was 2 years older than her brother is now.',
-      'So her brother is 7 now and 3 four years ago.'
+      'Three years ago Sara was 15 − 3 = 12.',
+      'She was twice her brother\'s age, so her brother was 12 ÷ 2 = 6 at that time.',
+      'That was 3 years ago, so her brother is 6 + 3 = 9 now.'
     ]
   },
   {
@@ -300,22 +300,22 @@ export const quantitativeReasoningQuestions: Question[] = [
     category: 'Quantitative Reasoning',
     psychometricCategory: 'Quantitative Reasoning',
     subTheme: 'Logic and Problem Solving',
-    stem: 'Kevin has an appointment halfway between 2:00 PM and 10:00 PM. What time is his appointment?',
+    stem: 'A movie starts at 11:30 AM and ends at 2:10 PM. The intermission happens exactly in the middle of the movie. What time does the intermission start?',
     choices: {
-      a: '4:00 PM',
-      b: '5:00 PM',
-      c: '6:00 PM',
-      d: '8:00 PM'
+      a: '12:30 PM',
+      b: '12:50 PM',
+      c: '1:00 PM',
+      d: '1:10 PM'
     },
-    key: 'c',
+    key: 'b',
     feedback: {
-      correct: 'Correct! The time span from 2:00 PM to 10:00 PM is 8 hours, and halfway is 4 hours after 2:00 PM, which is 6:00 PM.',
-      incorrect: 'First find the total time difference, then take half of it and add that amount to 2:00 PM.'
+      correct: 'Correct! The movie is 2 hours and 40 minutes long. Half of that is 1 hour and 20 minutes. 11:30 AM plus 1 hour 20 minutes is 12:50 PM.',
+      incorrect: 'First find the total length of the movie, then take half of that time and add it to the start time.'
     },
     customHints: [
-      'From 2:00 PM to 10:00 PM is 8 hours.',
-      'Half of 8 hours is 4 hours.',
-      '2:00 PM plus 4 hours is 6:00 PM.'
+      'From 11:30 AM to 2:10 PM is 2 hours and 40 minutes.',
+      'Half of 2 hours and 40 minutes is 1 hour and 20 minutes.',
+      '11:30 AM plus 1 hour and 20 minutes is 12:50 PM.'
     ]
   },
   {
